@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-6 col-xs-12">
+    <h2>Create Account</h2>
+  </div>
+</div>
+<div class="container centerA">
+
+  <div class="form">
+    <div *ngIf="pageId==0">
+      <form [formGroup]="setupForm">
+                      <label>first Name:</label>
+                      <input type="text" formControlName="firstName">
+                             <p class="validate" *ngIf="formStatus.formErrors['firstName']">{{ formStatus.formErrors['firstName'] }}</p>
+
+                      <label>Surname:</label>
+                      <input type="text" formControlName="surName">
+                             <p class="validate" *ngIf="formStatus.formErrors['surName']">{{ formStatus.formErrors['surName'] }}</p>
+
+                      <label>ID Number:</label>
+                      <input type="number" formControlName="IdNumber" (blur)="onBlurMethod()">
+                             <p class="validate"*ngIf="formStatus.formErrors['IdNumber'] " >{{ formStatus.formErrors['IdNumber'] }}</p>
+
+                      <label>Date Of Birth:</label>
+                      <input type="text" formControlName="dateOfBirth">
+                              <p class="validate" *ngIf="formStatus.formErrors['dateOfBirth'] ">{{ formStatus.formErrors['dateOfBirth'] }}</p>
+                      <input (click)="submit()" type="submit" value="submit">
+      </form>
+    </div>
+    <div *ngIf="pageId==1">
+      <div class="addSuccess">
+        <p>Registerd Successfully</p>
+        <button (click)="close()">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
